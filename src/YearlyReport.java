@@ -32,16 +32,7 @@ public class YearlyReport {
             int month = Integer.parseInt(linesRecd[0]);
             int cost = Integer.parseInt(linesRecd[1]);
             boolean isExpense = Boolean.parseBoolean(linesRecd[2]);
-//            if (mapDataYear.containsKey(month)) {
-//                YearData yRecord = mapDataYear.get(month);
-//                if (isExpense) {
-//                    yRecord.costSpending += cost;
-//                } else {
-//                    yRecord.costIncome += cost;
-//                }
-//            } else {
             mapDataYear.put(i, new YearData(month, cost, isExpense));
-//            }
         }
     }
 
