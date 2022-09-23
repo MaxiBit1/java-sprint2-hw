@@ -4,16 +4,35 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Класс считывания и подсчета месячных данных
+ * @author Max Vasilyev
+ * @version 1.0
+ */
+
 public class MonthlyReport {
 
+    /** Поле хеш-таблицы для хранения данных за три месяца в виде хеш-таблицы*/
     HashMap<Integer, ArrayList<MonthlyLine>> mapMonth = new HashMap<>();
 
+    /**
+     * Внутренний класс данных со свойствами <b>nameIsItem</b>,<b>costSpending</b> и <b>costIncome</b>
+     */
     class MonthlyLine {
 
+        /** Поле названия товара */
         String nameIsItem;
+        /** Поле суммы трат */
         int costSpending;
+        /** Поле суммы доходов */
         int costIncome;
 
+        /** Конструктор - создание объектов с определенными значениями
+         * @param nameIsItem - название товара
+         * @param isExpense - проверка на трату или доход
+         * @param quantity - количество товара
+         * @param sumOfOne - цена за один товар
+         */
         MonthlyLine(String nameIsItem, boolean isExpense, int quantity, int sumOfOne) {
             this.nameIsItem = nameIsItem;
             if (isExpense) {
@@ -24,6 +43,7 @@ public class MonthlyReport {
         }
     }
 
+    /** Процедура создания объектов и сохранения их в поле хеш-таблицы */
     void readMonthCSV() {
         ArrayList<MonthlyLine> arrayOfObjects;
         for (int i = 1; i < 4; i++) {
@@ -43,6 +63,10 @@ public class MonthlyReport {
 
     }
 
+    /** Метод считывания файла с определенным значением
+     * @param path - путь до файла
+     * @return возвращает считанный файл
+     */
     private String readFileContentsOrNull(String path) {
         try {
             return Files.readString(Path.of(path));
@@ -52,6 +76,9 @@ public class MonthlyReport {
         }
     }
 
+    /** Процесс проверки заполности хеш-таблицы
+     * @return возвращения результата проверки
+     */
     boolean checkMonth() {
         if (mapMonth.isEmpty()) {
             System.out.println("Вы не считали данные за месяцы");
@@ -60,8 +87,12 @@ public class MonthlyReport {
         return true;
     }
 
+    /** Метод для подсчета всех трад или доходов
+     * @param monthNumber - номер месяца
+     * @param checkIncomeOrSpending - проверка на трату или доход
+     * @return сумму траты или дохода
+     */
     int sumSpendOrIncome(int monthNumber, boolean checkIncomeOrSpending) {
-
         ArrayList<MonthlyLine> arrayMonthly = mapMonth.get(monthNumber);
         int sum = 0;
         for (MonthlyLine monthlyLine : arrayMonthly) {
@@ -74,8 +105,10 @@ public class MonthlyReport {
         return sum;
     }
 
-
-    void maxIncomeThingIncome(int month) {
+    /** Процесс нахождения товара с максимальным доходом
+     * @param month - номер месяца
+     */
+    void maxThingIncome(int month) {
         int resultMax = 0;
         for (int i = 0; i < mapMonth.get(month).size(); i++) {
             resultMax = Integer.max(resultMax, mapMonth.get(month).get(i).costIncome);
@@ -89,7 +122,10 @@ public class MonthlyReport {
         }
     }
 
-    void maxIncomeThingSpending(int month) {
+    /** Процесс нахождения товара с максимальнjq тратой
+     * @param month - номер месяца
+     */
+    void maxThingSpending(int month) {
         int resultMax = 0;
         for (int i = 0; i < mapMonth.get(month).size(); i++) {
             resultMax = Integer.max(resultMax, mapMonth.get(month).get(i).costSpending);
