@@ -78,13 +78,6 @@ public class ServiceBisnesLogic {
      * @return возвращает название месяца
      */
     public static String nameMonth(int month){
-//        if(month == 1){
-//            return "Январь";
-//        }else if(month == 2){
-//            return "Февраль";
-//        }else {
-//            return "Март";
-//        }
         String result = "";
         switch (month){
             case 1:
