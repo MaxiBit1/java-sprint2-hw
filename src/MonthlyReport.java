@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 public class MonthlyReport {
 
-    /** Поле хеш-таблицы для хранения данных за три месяца в виде хеш-таблицы*/
+
     HashMap<Integer, ArrayList<MonthlyLine>> mapMonth = new HashMap<>();
 
     /**
@@ -20,11 +20,8 @@ public class MonthlyReport {
      */
     class MonthlyLine {
 
-        /** Поле названия товара */
         String nameIsItem;
-        /** Поле суммы трат */
         int costSpending;
-        /** Поле суммы доходов */
         int costIncome;
 
         /** Конструктор - создание объектов с определенными значениями
