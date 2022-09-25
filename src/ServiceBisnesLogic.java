@@ -8,6 +8,7 @@ public class ServiceBisnesLogic {
     static MonthlyReport monthlyReport = new MonthlyReport();
     static YearlyReport yearlyReport = new YearlyReport();
 
+    /** Метод чтения месячных файлов или годового файла */
     public static void readCSV(int command){
         switch (command){
             case 1:
