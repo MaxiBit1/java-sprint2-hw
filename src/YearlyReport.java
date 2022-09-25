@@ -9,20 +9,15 @@ import java.util.HashMap;
  */
 public class YearlyReport {
 
-    /** Поле хранения данных с годового файла в виде хеш-таблицы */
     HashMap<Integer, YearData> mapDataYear = new HashMap<>();
-    /** Поле пути до годового файла */
     String path;
 
     /**
      * Внутренний класс данных со свойствами <b>month</b>,<b>costSpending</b> и <b>costIncome</b>
      */
     class YearData {
-        /** Поле числа месяца */
         int month;
-        /** Поле количество трат */
         int costSpending;
-        /** Поле количетсва дорхода */
         int costIncome;
 
         /** Конструктор - для создания объектов со свойствами
