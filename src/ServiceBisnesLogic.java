@@ -5,9 +5,7 @@
  */
 public class ServiceBisnesLogic {
 
-    /** Объект класса MonthlyReport */
     static MonthlyReport monthlyReport = new MonthlyReport();
-    /** Объект класса YearlyReport */
     static YearlyReport yearlyReport = new YearlyReport();
 
     public static void readCSV(int command){
