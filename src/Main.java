@@ -13,22 +13,29 @@ public class Main {
         while (true) {
             showMenu();
             int command = scanner.nextInt();
-            if (command == 1) {
-                ServiceBisnesLogic.readCSV(1);
-                System.out.println("Данные с месячных отчетов считаны");
-            } else if (command == 2) {
-                ServiceBisnesLogic.readCSV(2);
-                System.out.println("Данные с годового отчета считаны");
-            } else if (command == 3) {
-                ServiceBisnesLogic.checkMonthAndYear();
-            } else if (command == 4) {
-                ServiceBisnesLogic.showMonthlyInfo();
-            } else if (command == 5) {
-                ServiceBisnesLogic.showYearlyInfo();
-            } else if (command == 6) {
-                break;
-            } else {
-                System.out.println("Неизвестная комманда, введите другую команду!!!");
+            switch (command){
+                case 1:
+                    ServiceBisnesLogic.readCSV(1);
+                    System.out.println("Данные с месячных отчетов считаны");
+                    break;
+                case 2:
+                    ServiceBisnesLogic.readCSV(2);
+                    System.out.println("Данные с годового отчета считаны");
+                    break;
+                case 3:
+                    ServiceBisnesLogic.checkMonthAndYear();
+                    break;
+                case 4:
+                    ServiceBisnesLogic.showMonthlyInfo();
+                    break;
+                case 5:
+                    ServiceBisnesLogic.showYearlyInfo();
+                    break;
+                case 6:
+                    return;
+                default:
+                    System.out.println("Неизвестная комманда, введите другую команду!!!");
+                    break;
             }
         }
     }
